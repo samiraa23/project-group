@@ -4,24 +4,24 @@ const FeaturesSection = () => {
   const features = [
     {
       id: 1,
-      icon: '🚑', // You can replace this with an actual icon or image
+      icon: '🚑',
       title: 'Emergency Help',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mi quam vulputate.',
+        'Our dedicated emergency services are available 24/7, providing immediate assistance for critical situations. We ensure rapid response and effective care when you need it most.',
     },
     {
       id: 2,
-      icon: '💊', // You can replace this with an actual icon or image
+      icon: '💊',
       title: 'Enriched Pharmacy',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mi quam vulputate.',
+        'Our pharmacy offers a comprehensive range of medications and health products. With a focus on quality and accessibility, we provide expert advice and personalized care to meet your pharmaceutical needs.',
     },
     {
       id: 3,
-      icon: '🏥', // You can replace this with an actual icon or image
+      icon: '🏥',
       title: 'Medical Treatment',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mi quam vulputate.',
+        'We provide a wide array of medical treatments and services, from routine check-ups to advanced procedures. Our team of skilled professionals is committed to delivering high-quality healthcare tailored to your needs.',
     },
   ];
 
@@ -29,10 +29,10 @@ const FeaturesSection = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">
-          We Are Always Ready To Help You <br/>& Your Family
+          We Are Always Ready To Help You <br />& Your Family
         </h2>
         <p className="text-gray-600 mb-12">
-          Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet pretiums
+          Experience top-notch healthcare services with our comprehensive support system designed to meet all your medical needs.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

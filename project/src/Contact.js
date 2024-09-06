@@ -48,8 +48,8 @@ const ContactUs = () => {
         throw new Error('Network response was not ok');
       }
 
-      const result = await response.json();
-      alert('Form submitted successfully');
+      // const result = await response.json();
+      // alert('Form submitted successfully');
       
       // Clear form data
       setFormData({

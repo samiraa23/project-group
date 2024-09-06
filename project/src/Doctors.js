@@ -94,6 +94,7 @@ const DoctorGrid = () => {
         <div
         className="bg-cover p-20 text-center text-2xl text-blue-600 bg-center h-100"
      style={{ backgroundImage: `url('https://img.freepik.com/free-photo/crop-doctors-shaking-hands_23-2147896209.jpg?ga=GA1.1.421194447.1722059295&semt=ais_hybrid')` }} >
+        <h1 className=' text-5xl font-bold text-white-600'>Meet our qualified Doctors</h1>
      <NavLink
      to="/"
      className="text-gray-700 hover:text-blue-600"

@@ -2,6 +2,7 @@ import React from 'react';
 
 const AboutSection = () => {
   return (
+    <>
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
@@ -12,12 +13,11 @@ const AboutSection = () => {
             At our center, we are dedicated to enhancing your well-being through personalized care and innovative solutions.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">About Us</h3>
-            <p className="text-gray-600 mb-4">
-              Our mission is to provide comprehensive health services tailored to meet your unique needs. We combine cutting-edge medical practices with compassionate care to ensure the best outcomes for our patients.
-            </p>
+        <div className="flex flex-col md:flex-row items-center mx-40">
+          <div className="md:w-1/2 mb-8 md:mb-0 px-10">
+            <h3 className="text-2xl font-semibold text-gray-800 mb-5">Who We Are</h3>
+            <p className="text-gray-600 mb-6">
+            we are dedicated to providing comprehensive and compassionate healthcare services to our community. Established with a vision to enhance the well-being of those we serve, we combine state-of-the-art medical technology with a personalized approach to care.            </p>
             <p className="text-gray-600 mb-4">
               Our team of dedicated professionals is committed to supporting you every step of the way, from initial consultation to ongoing care. We strive to make a positive impact on your health and quality of life.
             </p>
@@ -30,7 +30,7 @@ const AboutSection = () => {
           <div className="md:w-1/2">
             <div className="relative">
               <img
-                src="path/to/your/image.jpg" // Update with the actual image source
+                src="https://media.istockphoto.com/id/1373659740/photo/shot-of-a-young-doctor-sharing-information-from-his-digital-tablet-with-an-older-patient.jpg?b=1&s=170x170&k=20&c=GG2kGVh3AnYCaFmMnW64SC769F-jGh0bD1Cp7z9efY8="
                 alt="Healthcare Services"
                 className="w-full rounded-lg shadow-lg"
               />
@@ -54,7 +54,9 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+
+    </>
   );
 };
 

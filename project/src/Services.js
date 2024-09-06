@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const services = [
     {
@@ -35,12 +36,28 @@ const services = [
 
 const Services = () => {
     return (
+        <>
+            <div
+        className="bg-cover p-20 text-center text-2xl text-blue-600 bg-center h-100"
+     style={{ backgroundImage: `url('https://img.freepik.com/free-photo/crop-doctors-shaking-hands_23-2147896209.jpg?ga=GA1.1.421194447.1722059295&semt=ais_hybrid')` }} >
+     <NavLink
+     to="/"
+     className="text-gray-700 hover:text-blue-600"
+     activeClassName="font-bold text-blue-600"
+   >
+     Home
+   </NavLink>/
+   <NavLink
+     to="/services"
+     className="text-gray-700 hover:text-blue-600"
+     activeClassName="font-bold text-blue-600"
+   >
+     services
+   </NavLink>
+      </div>
         <div className="bg-white py-16">
             <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-800">Services</h2>
-                    <p className="text-gray-600">Home / Services</p>
-                </div>
+        
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service, index) => (
                         <div key={index} className="text-center p-6 border rounded-lg shadow-lg">
@@ -52,6 +69,7 @@ const Services = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
