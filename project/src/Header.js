@@ -34,12 +34,12 @@ const Header = () => {
           <ul className="flex space-x-4">
             <li className="flex items-center">
               <i className="fa fa-phone text-blue-500"></i>
-              <span className="ml-2 text-gray-700">+880 1234 56789</span>
+              <span className="ml-2 text-gray-700">+254 7234 56789</span>
             </li>
             <li className="flex items-center">
               <i className="fa fa-envelope text-blue-500"></i>
               <a href="mailto:support@yourmail.com" className="ml-2 text-gray-700 hover:text-blue-500">
-                support@yourmail.com
+                mediplus@gmail.com
               </a>
             </li>
           </ul>

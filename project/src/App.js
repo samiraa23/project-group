@@ -13,6 +13,7 @@ import AdminAppointments from './AdminApointment';
 import Header from './Header';
 import SignUpForm from './SignUpForm';
 import LoginForm from './LoginForm';
+import HospitalInfo from './About';
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
           <Route path='/adminappoint' element={<AdminAppointments />} />
           <Route path='signup' element={<SignUpForm />} />
           <Route path='login' element={<LoginForm />} />
+          <Route path='about' element={<HospitalInfo />} />
+
 
       </Routes>
       </div>

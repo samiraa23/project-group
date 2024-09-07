@@ -13,7 +13,7 @@ const Footer = () => {
                         <div>
                             <h3 className="text-lg font-bold mb-4">About Us</h3>
                             <p>
-                            At [Hospital Name], we are more than just a healthcare provider; we are a trusted partner in your journey towards better health. We strive to build lasting relationships with our patients and their families, guided by our core values of compassion, integrity, and excellence.”                                </p>
+                            At Mediplus, we are more than just a healthcare provider; we are a trusted partner in your journey towards better health. We strive to build lasting relationships with our patients and their families, guided by our core values of compassion, integrity, and excellence.”                                </p>
                             <div className="flex space-x-4 mt-4">
                                 <NavLink to="/facebook" className="text-white hover:text-blue-300">
                                     <FaFacebookF />

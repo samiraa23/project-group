@@ -1,63 +1,62 @@
-import React from 'react';
+import React from "react";
 
-const AboutSection = () => {
+const HospitalInfo = () => {
   return (
-    <>
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            We Offer Different Services To Improve<br/> Your Health
-          </h2>
-          <p className="text-gray-600">
-            At our center, we are dedicated to enhancing your well-being through personalized care and innovative solutions.
+    <div className="hospital-info bg-gray-50 py-12 px-12 md:px-12 lg:px-24">
+      <div className="max-w-4xl mx-auto">
+        {/* About Us */}
+        <section className="about-us mb-12">
+          <h2 className="text-4xl font-bold text-blue-900 mb-6 text-center">About Us</h2>
+          <p className="text-xl text-gray-700 leading-relaxed mb-4">
+            At <span className="font-semibold">Mediplus</span>, we are dedicated to providing comprehensive and
+            compassionate healthcare services to our community. Established with
+            a vision to enhance the well-being of those we serve, we combine
+            state-of-the-art medical technology with a personalized approach to
+            care.
           </p>
-        </div>
-        <div className="flex flex-col md:flex-row items-center mx-40">
-          <div className="md:w-1/2 mb-8 md:mb-0 px-10">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-5">Who We Are</h3>
-            <p className="text-gray-600 mb-6">
-            we are dedicated to providing comprehensive and compassionate healthcare services to our community. Established with a vision to enhance the well-being of those we serve, we combine state-of-the-art medical technology with a personalized approach to care.            </p>
-            <p className="text-gray-600 mb-4">
-              Our team of dedicated professionals is committed to supporting you every step of the way, from initial consultation to ongoing care. We strive to make a positive impact on your health and quality of life.
-            </p>
-            <ul className="list-disc pl-5 text-gray-600 space-y-2">
-              <li>Personalized care plans designed for your specific health needs.</li>
-              <li>State-of-the-art facilities and advanced medical technology.</li>
-              <li>A team of experienced and compassionate healthcare professionals.</li>
-            </ul>
-          </div>
-          <div className="md:w-1/2">
-            <div className="relative">
-              <img
-                src="https://media.istockphoto.com/id/1373659740/photo/shot-of-a-young-doctor-sharing-information-from-his-digital-tablet-with-an-older-patient.jpg?b=1&s=170x170&k=20&c=GG2kGVh3AnYCaFmMnW64SC769F-jGh0bD1Cp7z9efY8="
-                alt="Healthcare Services"
-                className="w-full rounded-lg shadow-lg"
-              />
-              <a href="#" className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-blue-600 p-4 rounded-full">
-                  <svg
-                    className="text-white w-8 h-8"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-11.25V13a.75.75 0 001.207.607l3.25-2.25a.75.75 0 000-1.214l-3.25-2.25A.75.75 0 009 6.75z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      </section>
+          <p className="text-xl text-gray-700 leading-relaxed mb-4">
+            Our team of skilled healthcare professionals is committed to
+            delivering exceptional patient experiences through a multidisciplinary
+            approach. We offer a wide range of services, including emergency care,
+            specialized treatments, and preventive health services, all aimed at
+            meeting the diverse needs of our patients.
+          </p>
+          <p className="text-xl text-gray-700 leading-relaxed">
+            At <span className="font-semibold">Mediplus</span>, we are more than just a healthcare provider; we
+            are a trusted partner in your journey towards better health. We strive
+            to build lasting relationships with our patients and their families,
+            guided by our core values of compassion, integrity, and excellence.
+          </p>
+        </section>
 
-    </>
+        {/* Mission Statement */}
+        <section className="mission mb-12 bg-blue-100 p-8 rounded-lg shadow-lg">
+          <h2 className="text-3xl font-bold text-blue-900 mb-4 text-center">Our Mission</h2>
+          <p className="text-lg text-gray-700 leading-relaxed text-center">
+            Our mission is to deliver exceptional healthcare services that meet
+            the needs of our diverse community. We aim to provide patient-centered
+            care through compassion, innovation, and a commitment to quality. By
+            fostering a culture of trust, safety, and respect, we ensure that
+            every individual receives the highest standard of care, regardless of
+            their background or circumstances.
+          </p>
+        </section>
+
+        {/* Vision Statement */}
+        <section className="vision bg-blue-100 p-8 rounded-lg shadow-lg">
+          <h2 className="text-3xl font-bold text-blue-900 mb-4 text-center">Our Vision</h2>
+          <p className="text-lg text-gray-700 leading-relaxed text-center">
+            Our vision is to be a world-class healthcare institution that sets the
+            standard for excellence in clinical care, medical research, and
+            education. We aspire to be the hospital of choice for patients,
+            physicians, and healthcare professionals, driving advancements in
+            medicine and improving the health and well-being of the communities we
+            serve.
+          </p>
+        </section>
+      </div>
+    </div>
   );
 };
 
-export default AboutSection;
+export default HospitalInfo;

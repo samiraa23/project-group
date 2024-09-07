@@ -1,6 +1,6 @@
 import React from 'react';
 import FeaturesSection from './Feature';
-import AboutSection from './About';
+import AboutSection from './AboutSection';
 import Forms from './Forms';
 import StatsSection from './Section';
 import ImageLayout from './Carousel';
