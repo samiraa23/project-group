@@ -19,34 +19,36 @@
       "doctor": "Farhan",
       "date": "2024-09-07",
       "message": "ertrytryggvfdddd"
+    },
+    {
+      "id": "3090",
+      "name": ".htaccess",
+      "email": "info@gau.ac.ke",
+      "phone": "0721966418",
+      "department": "Select Department",
+      "doctor": "z",
+      "date": "2024-09-12",
+      "message": "xxx"
+    },
+    {
+      "id": "8b05",
+      "name": "farka f07",
+      "email": "farkaf07@gmail.com",
+      "phone": "0769352947",
+      "department": "Orthopedics",
+      "doctor": "ee",
+      "date": "2024-09-05",
+      "message": "vrtt"
     }
   ],
   "contact": [
-    {
-      "id": "7cd1",
-      "name": "farka f07",
-      "email": "farkaf07@gmail.com",
-      "phone": "0769352947",
-      "subject": "de",
-      "message": "ccccccccccccccccccccccccccccccccccc",
-      "newsletter": true
-    },
-    {
-      "id": "e04b",
-      "name": "farka f07",
-      "email": "farkaf07@gmail.com",
-      "phone": "0769352947",
-      "subject": "de",
-      "message": "ccccccccccccccccccccccccccccccccccc",
-      "newsletter": true
-    },
     {
       "id": "567e",
       "name": "farka f07",
       "email": "farkaf07@gmail.com",
       "phone": "0769352947",
       "subject": "de",
-      "message": "ccccccccccccccccccccccccccccccccccc",
+      "message": "i want to see a dentist",
       "newsletter": true
     },
     {

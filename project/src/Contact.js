@@ -7,18 +7,18 @@ const ContactUs = () => {
     phone: '',
     subject: '',
     message: '',
-    newsletter: false
+    newsletter: false,
   });
 
   const [info, setInfo] = useState({
     phone: '',
     address: '',
-    hours: ''
+    hours: '',
   });
 
   useEffect(() => {
     // Fetch contact info
-    fetch('http://localhost:3001/contact')
+    fetch('http://127.0.0.1:5000/contacts/')
       .then((response) => response.json())
       .then((data) => setInfo(data))
       .catch((error) => console.error('Error fetching contact info:', error));
@@ -28,42 +28,44 @@ const ContactUs = () => {
     const { id, value, type, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [id]: type === 'checkbox' ? checked : value
+      [id]: type === 'checkbox' ? checked : value,
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch('http://localhost:3001/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
+    fetch('http://127.0.0.1:5000/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Success:', data);
+        alert('Form submitted successfully');
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      // const result = await response.json();
-      // alert('Form submitted successfully');
-      
-      // Clear form data
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-        newsletter: false
+        // Clear form data
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+          newsletter: false,
+        });
+      })
+      .catch((error) => {
+        console.error('Error submitting form:', error);
+        alert('There was an error submitting your form. Please try again.');
       });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error submitting your form. Please try again.');
-    }
   };
 
   return (
@@ -73,9 +75,7 @@ const ContactUs = () => {
           {/* Contact form */}
           <div className="w-full md:w-1/2 bg-white p-6 shadow-lg rounded-lg">
             <h2 className="text-2xl font-semibold mb-4">Contact With Us</h2>
-            <p className="mb-4">
-              If you have any questions, feel free to contact us.
-            </p>
+            <p className="mb-4">If you have any questions, feel free to contact us.</p>
 
             {/* Updated form with 2x2 grid */}
             <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleSubmit}>

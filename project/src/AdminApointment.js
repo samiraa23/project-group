@@ -21,7 +21,7 @@ const AdminAppointments = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/questions');
+      const response = await axios.get('http://localhost:3000/questions');
       setAppointments(response.data);
     } catch (error) {
       console.error('Error fetching appointments:', error);
@@ -36,7 +36,7 @@ const AdminAppointments = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/questions/${id}`);
+      await axios.delete(`http://localhost:3000/questions/${id}`);
       setAppointments(appointments.filter((app) => app.id !== id));
     } catch (error) {
       console.error('Error deleting appointment:', error);
@@ -60,7 +60,7 @@ const AdminAppointments = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:3001/questions/${selectedAppointment.id}`,
+        `http://localhost:3000/questions/${selectedAppointment.id}`,
         formData
       );
       setAppointments(appointments.map((app) => (app.id === response.data.id ? response.data : app)));

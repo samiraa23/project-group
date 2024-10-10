@@ -23,7 +23,7 @@ const AppointmentBooking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3001/questions', formData);
+      await axios.post('http://localhost:3000/questions', formData);
       alert('Appointment booked successfully!');
       setFormData({
         name: '',
