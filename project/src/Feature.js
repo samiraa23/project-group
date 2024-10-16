@@ -23,6 +23,25 @@ const FeaturesSection = () => {
       description:
         'We provide a wide array of medical treatments and services, from routine check-ups to advanced procedures. Our team of skilled professionals is committed to delivering high-quality healthcare tailored to your needs.',
     },
+    {
+      id: 4,
+      icon: '🏥',
+      title: ' Treatment',
+      description:
+        'We provide a wide array of medical treatments and services, from routine check-ups to advanced procedures. Our team of skilled professionals is committed to delivering high-quality healthcare tailored to your needs.',
+    }, {
+      id: 5,
+      icon: '🏥',
+      title: ' Treatment',
+      description:
+        'We provide a wide array of medical treatments and services, from routine check-ups to advanced procedures. Our team of skilled professionals is committed to delivering high-quality healthcare tailored to your needs.',
+    }, {
+      id: 6,
+      icon: '🏥',
+      title: 'Medical care',
+      description:
+        'We provide a wide array of medical treatments and services, from routine check-ups to advanced procedures. Our team of skilled professionals is committed to delivering high-quality healthcare tailored to your needs.',
+    },
   ];
 
   return (

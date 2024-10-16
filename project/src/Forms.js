@@ -11,10 +11,10 @@ function Forms() {
   return (
     <div>
        <div
-      className="bg-cover bg-center h-100"
+      className="bg-cover bg-center h-full"
    style={{ backgroundImage: `url('https://img.freepik.com/free-photo/blurred-abstract-background-interior-view-looking-out-toward-empty-office-lobby-entrance-doors-glass-curtain-wall-with-frame_1339-6363.jpg?ga=GA1.1.421194447.1722059295&semt=ais_hybrid')` }} 
     >
-      <section className="container mx-auto my-16 p-4 ">
+      <section className="container mx-auto my-16 py-14 ">
         <h1 className="text-5xl font-bold text-gray-900">
           We Provide <span className="text-blue-600">Medical</span> Services <br />That You Can <span className="text-blue-600">Trust!</span>
         </h1>

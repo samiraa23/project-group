@@ -21,7 +21,7 @@ const AdminAppointments = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/questions');
+      const response = await axios.get('http://127.0.0.1:5500/user');
       setAppointments(response.data);
     } catch (error) {
       console.error('Error fetching appointments:', error);
@@ -36,7 +36,7 @@ const AdminAppointments = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/questions/${id}`);
+      await axios.delete(`http://127.0.0.1:5500/user/${id}`);
       setAppointments(appointments.filter((app) => app.id !== id));
     } catch (error) {
       console.error('Error deleting appointment:', error);
@@ -60,7 +60,7 @@ const AdminAppointments = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:3000/questions/${selectedAppointment.id}`,
+        `http://127.0.0.1:5500/user/${selectedAppointment.id}`,
         formData
       );
       setAppointments(appointments.map((app) => (app.id === response.data.id ? response.data : app)));
@@ -172,7 +172,58 @@ const AdminAppointments = () => {
                     required
                   />
                 </div>
-                {/* Add other fields similarly */}
+                <div className="mb-4">
+                  <label htmlFor="department" className="block text-sm font-medium">
+                    Department
+                  </label>
+                  <input
+                    type="text"
+                    id="department"
+                    value={formData.department}
+                    onChange={handleChange}
+                    className="mt-1 p-2 w-full border"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="doctor" className="block text-sm font-medium">
+                    Doctor
+                  </label>
+                  <input
+                    type="text"
+                    id="doctor"
+                    value={formData.doctor}
+                    onChange={handleChange}
+                    className="mt-1 p-2 w-full border"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="date" className="block text-sm font-medium">
+                    Date
+                  </label>
+                  <input
+                    type="date"
+                    id="date"
+                    value={formData.date}
+                    onChange={handleChange}
+                    className="mt-1 p-2 w-full border"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="message" className="block text-sm font-medium">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="mt-1 p-2 w-full border"
+                    rows="4"
+                    required
+                  ></textarea>
+                </div>
                 <button
                   type="submit"
                   className="bg-blue-500 text-white py-2 px-4 rounded-md w-full mt-4"
