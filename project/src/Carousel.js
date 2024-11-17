@@ -12,7 +12,6 @@ const Arrow = ({ className, style, onClick, direction }) => (
     style={{
       ...style, 
       display: 'block', 
-      background: 'rgba(0, 0, 255, 0.8)', // Blue background
       padding: '15px', // Adjust padding for bigger size
       borderRadius: '50%', 
       zIndex: 2, 
@@ -26,7 +25,6 @@ const Arrow = ({ className, style, onClick, direction }) => (
   >
     <FontAwesomeIcon 
       icon={direction === 'right' ? faArrowRight : faArrowLeft} 
-      style={{ fontSize: '24px', color: '#fff' }} // Icon size and color
     />
   </div>
 );
@@ -75,7 +73,7 @@ const ImageLayout = () => {
           <Slider {...carouselSettings} className="w-full">
             {images.map((img, index) => (
               <div key={index} className="flex-shrink-0 w-full md:w-1/3 h-64 border border-gray-300 rounded-lg overflow-hidden shadow-lg">
-                <img src={img} alt={`Image ${index + 1}`} className="w-full h-full object-cover" />
+                <img src={img} alt={`other doctors ${index + 1}`} className="w-full h-full object-cover" />
               </div>
             ))}
           </Slider>

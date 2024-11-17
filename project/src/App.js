@@ -5,34 +5,38 @@ import Footer from './Footer';
 import Services from './Services';
 import DoctorGrid from './Doctors';
 import Contact from './Contact';
-import FAQ from './FAQ';
+import Faq from './Faq';
 import AppointmentBooking from './Appointment';
 import TrustInMedical from './Trust';
-import Admin from './Admin';
-import AdminAppointments from './AdminApointment';
-import Header from './Header';
+import Admin from './admin/Admin';
 import SignUpForm from './SignUpForm';
 import LoginForm from './LoginForm';
 import HospitalInfo from './About';
+import AdminAppointments from './admin/AdminApointment';
+import Header from './Header';
+import Profile from './Profile';
 
 function App() {
   return (
     <Router>
+      <Header />
       <div>
-        <Header />
         <Routes>
           <Route path="/" element={<HomePage />} /> {/* HomePage is default at "/" */}
           <Route path="/doctors" element={<DoctorGrid />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/appointment" element={<AppointmentBooking />} />
           <Route path="/trust" element={<TrustInMedical />} />
           <Route path='/admin' element={<Admin />} />
           <Route path='/adminappoint' element={<AdminAppointments />} />
           <Route path='signup' element={<SignUpForm />} />
-          <Route path='login' element={<LoginForm />} />
-          <Route path='about' element={<HospitalInfo />} />
+          <Route path='/login' element={<LoginForm />} />
+          <Route path='/about' element={<HospitalInfo />} />
+          <Route path='/profile' element={<Profile />} />
+
+        
 
 
       </Routes>
@@ -63,4 +67,3 @@ function App() {
 }
 
 export default App;
-

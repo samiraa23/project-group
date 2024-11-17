@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <>
             {/* Footer Section */}
-            <footer className="bg-blue-600 text-white py-10">
+            <footer className="bg-blue-700 text-white py-10">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {/* About Us */}
@@ -37,8 +37,8 @@ const Footer = () => {
                                 <li><NavLink to="/" className="hover:text-blue-300">Home</NavLink></li>
                                 <li><NavLink to="/about" className="hover:text-blue-300">About Us</NavLink></li>
                                 <li><NavLink to="/services" className="hover:text-blue-300">Services</NavLink></li>
-                                <li><NavLink to="/cases" className="hover:text-blue-300">Our Cases</NavLink></li>
-                                <li><NavLink to="/other" className="hover:text-blue-300">Other Links</NavLink></li>
+                                <li><NavLink to="/" className="hover:text-blue-300">Our Cases</NavLink></li>
+                                <li><NavLink to="/" className="hover:text-blue-300">Other Links</NavLink></li>
                             </ul>
                         </div>
 
@@ -73,7 +73,7 @@ const Footer = () => {
                     </div>
 
                     <div className="mt-8 text-center text-sm">
-                        <p>© 2024 Mediplus. All rights reserved.</p>
+                        <p>copyright © 2024 Mediplus. All rights reserved.</p>
                     </div>
                 </div>
             </footer>

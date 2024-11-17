@@ -14,7 +14,7 @@ const SignUpForm = () => {
 
     const user = { name, email, password };
 
-    fetch("http://localhost:3001/users", {
+    fetch("http://127.0.0.1:5300/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const SignUpForm = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <button className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">
+              <button className="w-full bg-blue-500 text-white py-2 rounded-lg">
                 Sign Up
               </button>
             </form>

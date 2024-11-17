@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import MainServices from './services/MainServices';
 
 const services = [
     {
@@ -69,6 +70,7 @@ const Services = () => {
                 </div>
             </div>
         </div>
+        <MainServices />
         </>
     );
 };

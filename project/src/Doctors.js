@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import OtherDoctors from './OtherDoctors';
 // Example data for doctors
 const doctors = [
     {
@@ -92,20 +93,20 @@ const DoctorGrid = () => {
     return (
         <>
         <div
-        className="bg-cover p-20 text-center text-2xl text-blue-600 bg-center h-100"
+        className="bg-cover p-20 text-center text-2xl text-blue-700 bg-center h-100"
      style={{ backgroundImage: `url('https://img.freepik.com/free-photo/crop-doctors-shaking-hands_23-2147896209.jpg?ga=GA1.1.421194447.1722059295&semt=ais_hybrid')` }} >
-        <h1 className=' text-5xl font-bold text-white-600'>Meet our qualified Doctors</h1>
+        <h1 className=' text-5xl font-bold text-white-700'>Meet our qualified Doctors</h1>
      <NavLink
      to="/"
-     className="text-gray-700 hover:text-blue-600"
-     activeClassName="font-bold text-blue-600"
+     className="text-gray-700 hover:text-blue-700"
+     activeClassName="font-bold text-blue-700"
    >
      Home
    </NavLink>/
    <NavLink
      to="/doctors"
-     className="text-gray-700 hover:text-blue-600"
-     activeClassName="font-bold text-blue-600"
+     className="text-gray-700 hover:text-blue-700"
+     activeClassName="font-bold text-blue-700"
    >
      Doctor
    </NavLink>
@@ -117,17 +118,17 @@ const DoctorGrid = () => {
                 <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg p-6">
                     <img src={selectedDoctor.imageUrl} alt={selectedDoctor.name} className="w-full h-64 object-cover mb-4" />
                     <h3 className="text-2xl font-bold mb-2">{selectedDoctor.name}</h3>
-                    <p className="text-gray-600 mb-4">{selectedDoctor.specialty}</p>
+                    <p className="text-gray-700 mb-4">{selectedDoctor.specialty}</p>
                     <p className="text-gray-700 mb-4">{selectedDoctor.description}</p>
-                    <p className="text-blue-600 mb-2"><strong>Contact:</strong> {selectedDoctor.contact}</p>
-                    <p className="text-gray-600 mb-2"><strong>Experience:</strong> {selectedDoctor.experience}</p>
-                    <p className="text-gray-600 mb-2"><strong>Education:</strong> {selectedDoctor.education}</p>
-                    <p className="text-gray-600 mb-2"><strong>Hospital:</strong> {selectedDoctor.hospital}</p>
-                    <p className="text-gray-600 mb-2"><strong>Working Hours:</strong> {selectedDoctor.workingHours}</p>
-                    <p className="text-gray-600 mb-4"><strong>Location:</strong> {selectedDoctor.location}</p>
+                    <p className="text-blue-700 mb-2"><strong>Contact:</strong> {selectedDoctor.contact}</p>
+                    <p className="text-gray-700 mb-2"><strong>Experience:</strong> {selectedDoctor.experience}</p>
+                    <p className="text-gray-700 mb-2"><strong>Education:</strong> {selectedDoctor.education}</p>
+                    <p className="text-gray-700 mb-2"><strong>Hospital:</strong> {selectedDoctor.hospital}</p>
+                    <p className="text-gray-700 mb-2"><strong>Working Hours:</strong> {selectedDoctor.workingHours}</p>
+                    <p className="text-gray-700 mb-4"><strong>Location:</strong> {selectedDoctor.location}</p>
                     <button
                         onClick={handleBack}
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
                     >
                         Back to Doctors List
                     </button>
@@ -144,13 +145,14 @@ const DoctorGrid = () => {
                             <img src={doctor.imageUrl} alt={doctor.name} className="w-full h-64 object-cover" />
                             <div className="p-4 text-center">
                                 <h3 className="text-lg font-bold mb-2">{doctor.name}</h3>
-                                <p className="text-gray-600">{doctor.specialty}</p>
+                                <p className="text-gray-700">{doctor.specialty}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             )}
         </div>
+        <OtherDoctors />
         </>
     );
 };

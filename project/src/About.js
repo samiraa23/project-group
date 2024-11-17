@@ -54,6 +54,16 @@ const HospitalInfo = () => {
             serve.
           </p>
         </section>
+      {/* Vision Statement */}
+        <section className="value mt-12 bg-blue-100 p-8 rounded-lg shadow-lg">
+          <h2 className="text-3xl font-bold text-blue-900 mb-4 text-center">Our core value</h2>
+          <p className="text-lg text-gray-700 leading-relaxed text-center">
+          Our hospital is dedicated to delivering compassionate, patient-centered care, ensuring 
+          that every individual feels valued, respected, and understood. We strive to provide a 
+          comforting environment, where patients and their families receive not only high-quality
+          medical treatment but also empathy, dignity, and support throughout their healthcare journey.
+          </p>
+        </section>
       </div>
     </div>
   );
