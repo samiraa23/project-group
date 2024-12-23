@@ -15,6 +15,9 @@ import HospitalInfo from './About';
 import AdminAppointments from './admin/AdminApointment';
 import Header from './Header';
 import Profile from './Profile';
+import RequestPasswordReset from './RequestResetPassword';
+import ResetPassword from './ResetPassword';
+import MedicinesList from './Medicine';
 
 function App() {
   return (
@@ -31,10 +34,13 @@ function App() {
           <Route path="/trust" element={<TrustInMedical />} />
           <Route path='/admin' element={<Admin />} />
           <Route path='/adminappoint' element={<AdminAppointments />} />
-          <Route path='signup' element={<SignUpForm />} />
+          <Route path='request' element={<RequestPasswordReset />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/about' element={<HospitalInfo />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/medicine' element={<MedicinesList />} />
+          <Route path="/signup" element={<SignUpForm />} />
+        <Route path="/reset" element={<ResetPassword />} />
 
         
 

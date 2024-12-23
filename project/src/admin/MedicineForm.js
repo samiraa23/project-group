@@ -1,116 +1,98 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
 
-const MedicineForm = () => {
+const DoctorsForm = ({ onDoctorAdded }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    price: '',
-    image: null,
+    name: "",
+    imageUrl: null,
+    description: "",
+    
   });
 
+  // Handle input changes
   const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleImageChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      image: e.target.files[0],
-    }));
+  const handleFileChange = (e) => {
+    setFormData({ ...formData, imageUrl: e.target.files[0] });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = new FormData();
-    form.append('name', formData.name);
-    form.append('description', formData.description);
-    form.append('price', formData.price);
-    form.append('image', formData.image);
-
+  
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("description", formData.description);
+   
+    if (formData.imageUrl) data.append("image", formData.imageUrl); // Changed 'imageUrl' to 'image'
+  
     try {
-      await axios.post('http://127.0.0.1:5500/medicine', form, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+      const response = await fetch("http://127.0.0.1:5200/medicines", {
+        method: "POST",
+        body: data,
       });
-      alert('Medicine added successfully');
-    } catch (error) {
-      console.error('Error uploading medicine:', error);
+  
+      if (response.ok) {
+        alert("Doctor created successfully!");
+        setFormData({
+          name: "",
+          imageUrl: null,
+          description: "",
+        });
+        onDoctorAdded(); // Notify parent component to refresh the list
+      } else {
+        const error = await response.json();
+        alert(`Error: ${error.error}`);
+      }
+    } catch (err) {
+      console.error("Error saving doctor:", err);
     }
   };
+  
 
   return (
-    <div className="p-6 bg-white shadow-lg rounded-lg">
-      <h2 className="text-2xl font-semibold mb-4">Add Medicine</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="mt-1 p-2 w-full border"
-            required
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="description" className="block text-sm font-medium">
-            Description
-          </label>
-          <textarea
-            id="description"
-            value={formData.description}
-            onChange={handleChange}
-            className="mt-1 p-2 w-full border"
-            required
-          ></textarea>
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="price" className="block text-sm font-medium">
-            Price
-          </label>
-          <input
-            type="number"
-            id="price"
-            value={formData.price}
-            onChange={handleChange}
-            className="mt-1 p-2 w-full border"
-            required
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="image" className="block text-sm font-medium">
-            Medicine Image
-          </label>
-          <input
-            type="file"
-            id="image"
-            onChange={handleImageChange}
-            className="mt-1 p-2 w-full border"
-            required
-          />
-        </div>
-
+    <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-10">
+      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+        Add medicine
+      </h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+       
+        <input
+          type="file"
+          name="imageUrl"
+          onChange={handleFileChange}
+          accept="image/*"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <textarea
+          name="description"
+          placeholder="Description"
+          value={formData.description}
+          onChange={handleChange}
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        ></textarea>
+        
         <button
           type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded-md w-full mt-4"
+          className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-200"
         >
-          Add Medicine
+          Add medicine
         </button>
       </form>
     </div>
   );
 };
 
-export default MedicineForm;
+export default DoctorsForm;

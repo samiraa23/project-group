@@ -3,6 +3,8 @@ import MedicineForm from './MedicineForm';
 import DoctorsForm from './DoctorsForm';
 import AdminView from './DocotorAdmin';
 import AdminContact from './AdminContact';
+import DoctorsList from './ViewDoctors';
+import MedicinesList from './ViewMedicine';
 
 
 const AdminAppointments = () => {
@@ -22,11 +24,7 @@ const AdminAppointments = () => {
               Appointments
             </button>
           </li>
-          <li>
-            <button onClick={() => handleLinkClick('users')} className="w-full text-left">
-              Users
-            </button>
-          </li>
+        
           <li>
             <button onClick={() => handleLinkClick('contacts')} className="w-full text-left">
               Contacts
@@ -61,6 +59,9 @@ const AdminAppointments = () => {
         {activeSection === 'contacts'   && <AdminContact />}
         {activeSection === 'medicine' && <MedicineForm />}
         {activeSection === 'doctors' && <DoctorsForm />}
+        {activeSection === 'view doctors' && <DoctorsList/>}
+        {activeSection === 'view medicine' && <MedicinesList/>}
+
       </div>
     </div>
   );

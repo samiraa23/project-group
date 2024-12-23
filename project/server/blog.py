@@ -3,15 +3,29 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
+from flask_mail import Mail, Message
 
-# booking api
+# Initialize app
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app)
 
+# Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
+# Flask-Mail configuration
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'        # Gmail SMTP server
+app.config['MAIL_PORT'] = 587                      # TLS port
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = 'farkaf07@gmail.com'   # Your email address
+app.config['MAIL_PASSWORD'] = 'bvyk xbcm kszc moym'    # Your email password or app password
+app.config['MAIL_DEFAULT_SENDER'] = 'farkaf@gmail.com'  # Default sender
+
+mail = Mail(app)
+
+# User model
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
@@ -22,9 +36,10 @@ class User(db.Model):
     date = db.Column(db.String(120), nullable=False)
     message = db.Column(db.String(120), nullable=False)
 
-    def _repr_(self):
-        return '<User %r>' % self.name
+    def __repr__(self):
+        return f'<User {self.name}>'
 
+# User schema for serialization
 class UserSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = User
@@ -32,8 +47,68 @@ class UserSchema(SQLAlchemyAutoSchema):
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
 
+# Create database tables
 with app.app_context():
     db.create_all()
+
+### CRUD Operations ###
+
+# Create a new user with email notification
+@app.route("/users", methods=["POST"])
+def add_user():
+    name = request.json.get('name')
+    email = request.json.get('email')
+    phone = request.json.get('phone')
+    department = request.json.get('department')
+    doctor = request.json.get('doctor')
+    date = request.json.get('date')
+    message = request.json.get('message')
+
+    new_user = User(
+        name=name,
+        email=email,
+        phone=phone,
+        department=department,
+        doctor=doctor,
+        date=date,
+        message=message
+    )
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    # Send email notification
+    try:
+        send_confirmation_email(new_user)
+    except Exception as e:
+        print(f"Email failed to send: {e}")
+
+    return user_schema.dump(new_user), 201
+
+# Function to send email notification
+def send_confirmation_email(user):
+    subject = "Appointment Booking Confirmation"
+    body = f"""
+    Hello {user.name},
+
+    Your appointment has been successfully booked.
+
+    Details:
+    - Doctor: {user.doctor}
+    - Department: {user.department}
+    - Date: {user.date}
+    - Phone: {user.phone}
+    - Message: {user.message}
+
+    Thank you for booking with us!
+
+    Best regards,
+    Clinic Team
+    """
+
+    msg = Message(subject, recipients=[user.email])
+    msg.body = body
+    mail.send(msg)
 
 # Get all users
 @app.route("/user/", methods=["GET"])
@@ -49,24 +124,7 @@ def get_user(id):
         return make_response(jsonify({"message": "User not found"}), 404)
     return user_schema.dump(user)
 
-# Add a new user
-@app.route("/users", methods=["POST"])
-def add_users():
-    name = request.json.get('name')
-    email = request.json.get('email')
-    phone = request.json.get('phone')
-    department = request.json.get('department')
-    doctor = request.json.get('doctor')
-    date = request.json.get('date')
-    message = request.json.get('message')
-
-    new_user = User(name=name, email=email, phone=phone, department=department, doctor=doctor, date=date, message=message)
-    db.session.add(new_user)
-    db.session.commit()
-
-    return user_schema.dump(new_user), 201
-
-# Edit (update) an existing user
+# Update an existing user
 @app.route("/user/<int:id>", methods=["PUT"])
 def update_user(id):
     user = User.query.get(id)
@@ -95,5 +153,6 @@ def delete_user(id):
     db.session.commit()
     return make_response(jsonify({"message": "User deleted successfully"}), 200)
 
+# Run the app
 if __name__ == "__main__":
     app.run(debug=True, port=5500)

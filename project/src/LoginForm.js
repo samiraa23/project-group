@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ closeModal, onLoginSuccess }) => {
   const [email, setEmail] = useState("");
@@ -25,24 +25,17 @@ const LoginForm = ({ closeModal, onLoginSuccess }) => {
         }
       })
       .then((data) => {
-        // Assuming the API returns user details like { name: 'Jane Doe', email: 'jane.doe@example.com' }
         alert("Login successful!");
-
-        // Pass the user data back to the Header component through onLoginSuccess
         onLoginSuccess(data);
 
-        // Store the user data in localStorage
         localStorage.setItem("isAuthenticated", "true");
-        localStorage.setItem("user", JSON.stringify(data.email)); // Store the user's email for simplicity
+        localStorage.setItem("user", JSON.stringify(data.email));
 
-        // Close the login modal
         closeModal();
-
-        // Redirect to the homepage
         navigate("/");
       })
       .catch((error) => {
-        setError(error.message);  // Set error message if login fails
+        setError(error.message);
       });
   };
 
@@ -88,6 +81,23 @@ const LoginForm = ({ closeModal, onLoginSuccess }) => {
               Login
             </button>
           </form>
+          <div className="mt-4 text-center">
+            <NavLink
+              to="/request"
+              className="text-blue-500 hover:underline text-sm"
+            >
+              Forgot Password?
+            </NavLink>
+          </div>
+          <div className="mt-2 text-center">
+            <span className="text-gray-600 text-sm">Don't have an account? </span>
+            <NavLink
+              to="/signup"
+              className="text-blue-500 hover:underline text-sm"
+            >
+              Sign Up
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>
